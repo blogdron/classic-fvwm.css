@@ -21,10 +21,17 @@
       $( "#content3" ).draggable({ handle: "h1.title" });
       $( "#content7" ).draggable({ handle: "h1.title" });
       $( "#content8" ).draggable({ handle: "h1.title" });
+      $( "#content9" ).draggable({ handle: "h1.title" });
       $( "#content5" ).draggable({ handle: "div.draggable" });
       $( "#content6" ).draggable({ handle: "div.draggable" });
       $( "#content"  ).resizable({ handle: "content.inner" });
 
+      /* Example Wallpaper Manager Selector*/
+      $("button").click(function(){
+          var wallpaper = $(this).find("img").attr("src");
+          $("html,body").css("background-image",'url(' + wallpaper + ')');
+      });
+      /* Example Dynamic Change "Window" Focus*/
       $(".content").hover(
         function () {
           $(this).addClass("win-blue");
@@ -269,27 +276,108 @@ MiB Swap:  11847,4 total,   6717,9 free,   5129,6 used.   1538,1 avail Mem
       <img src="img/glxgears-icon.png"  alt="icon"/>
     </div>
  </div>
+<!---------------------------------------------------------------------------->
+<!--                     Just Another Funny Example                         -->
+<!---------------------------------------------------------------------------->
+<div id="content9" class="content old-scrollbar"  style="top: 480px; left: 540px; width:1240px;" >
+  <div class="panel">
 
+      <div class="control-box icon-box">
+          <a class="control-box-inner"></a>
+      </div>
 
+      <div class="control-box close-box">
+          <div class="control-box-inner">
+              <div class="close-box-inner"></div>
+          </div>
+      </div>
 
+      <div class="control-box maximize-box">
+          <div class="control-box-inner">
+              <div class="maximize-box-inner"></div>
+          </div>
+      </div>
 
+      <h1 class="title">Wallpaper Manager - Select Wallpaper You Want</h1>
+  </div>
+  <div class="inner">
+    <button >
+        <img src="img/patterns/p4.png" alt="wall"/>
+    </button>
+    <button >
+        <img src="img/patterns/128.png" alt="wall"/>
+    </button>
+    <button >
+        <img src="img/patterns/131.png" alt="wall"/>
+    </button>
+    <button >
+        <img src="img/patterns/139.png" alt="wall"/>
+    </button>
+    <button >
+        <img src="img/patterns/137.png" alt="wall"/>
+    </button>
+    <button >
+        <img src="img/patterns/1111.png" alt="wall"/>
+    </button>
+    <button >
+        <img src="img/patterns/1970.png" alt="wall"/>
+    </button>
+    <button >
+        <img src="img/patterns/1971.png" alt="wall"/>
+    </button>
+    <button >
+        <img src="img/patterns/1978.png" alt="wall"/>
+    </button>
+    <button >
+        <img src="img/patterns/1975.png" alt="wall"/>
+    </button>
+    <button >
+        <img src="img/patterns/7321.png" alt="wall"/>
+    </button>
+    <button >
+        <img src="img/patterns/24817.png" alt="wall"/>
+    </button>
+    <button >
+        <img src="img/patterns/19688.png" alt="wall"/>
+    </button>
+    <button >
+        <img src="img/patterns/18078.png" alt="wall"/>
+    </button>
+    <button >
+        <img src="img/patterns/28851.png" alt="wall"/>
+    </button>
+    <button >
+        <img src="img/patterns/12821.png" alt="wall"/>
+    </button>
+    <button >
+        <img src="img/patterns/128.png" alt="wall"/>
+    </button>
+    <button >
+        <img src="img/patterns/10042.png" alt="wall"/>
+    </button>
+    <button>
+        <img src="img/patterns/29907.png" alt="wall"/>
+    </button>
+    <button >
+        <img src="img/patterns/32623.png" alt="wall"/>
+    </button>
+    <button >
+        <img src="img/patterns/1975.png" alt="wall"/>
+    </button>
+    <button >
+        <img src="img/patterns/141.png" alt="wall"/>
+    </button>
+    <button >
+        <img src="img/patterns/145.png" alt="wall"/>
+    </button>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <button >
+        <img src="img/patterns/21225.png" alt="wall"/>
+    </button>
+    <button >
+        <img src="img/patterns/131.png" alt="wall"/>
+    </button>
+  </div>
+ </div>
 </body>
 </html>
