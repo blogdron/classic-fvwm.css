@@ -1,34 +1,65 @@
-/* apply a natural box layout model to all elements */
-*,
-*:before,
-*:after {
+/*---------------------------------------------------------------------------*/
+*, *:before, *:after
+{
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 
-@font-face {
+@font-face
+{
     font-family: 'ChicagoFLF';
     src: url('fonts/ChicagoFLF.ttf') format('truetype'); /* Safari, Android, iOS */
 }
 
-:root {
+:root
+{
     --button-box-shadow:
-	inset -1px -1px 0px 0px #777,
-	inset -2px -2px 0px 0px #aaa,
-	inset 1px 1px 0px 0px #ddd,
-	inset 2px 2px 0px 0px #fff;
+    inset -1px -1px 0px 0px #777,
+    inset -2px -2px 0px 0px #aaa,
+    inset 1px 1px 0px 0px #ddd,
+    inset 2px 2px 0px 0px #fff;
     --button-hover-bezel:
-	0 0 0 1px #aaa,
-	0 0 0 2px #ddd,
-	0 0 0 3px #000;
+    0 0 0 1px #aaa,
+    0 0 0 2px #ddd,
+    0 0 0 3px #000;
 }
 
-html,
-body {
+@supports (scrollbar-color: auto)
+{
+  .black-scrollbar
+  {
+     scrollbar-color: black white;
+  }
+}
+
+@supports (scrollbar-width: auto)
+{
+  .black-scrollbar
+  {
+      scrollbar-width: auto;
+  }
+}
+
+@supports selector(::-webkit-scrollbar)
+{
+
+  .old-scrollbar ::-webkit-scrollbar
+  {
+    background: url("img/controls/scrollbar-background.png");
+  }
+  .old-scrollbar ::-webkit-scrollbar-thumb
+  {
+    background: url("img/controls/scrollbar.png");
+  }
+
+}
+/*---------------------------------------------------------------------------*/
+html, body
+{
     -moz-user-select: none;
     -webkit-user-select: none;
-    background-image: url("img/patterns/128.png");
+    background-image: url("img/patterns/p4.png");
     background-repeat: repeat;
     margin: 0;
     height: 100%;
@@ -37,113 +68,260 @@ body {
     font-weight: normal;
     overflow: hidden;
 }
-button {
+
+button
+{
     font-family: inherit;
     font-size: inherit;
     color: inherit;
 }
-a {
+
+a
+{
     color: #000;
 }
 :focus {outline:none;}
 ::-moz-focus-inner {border:0;}
-
-/* Window layout */
-.content {
-    position: relative;
+/*---------------------------------------------------------------------------*/
+.draggable
+{
+    /*Helper class for js*/
+}
+/*---------------------------------------------------------------------------*/
+.content
+{
+    top: 200px;
+    left: 800px;
     z-index: 2;
+    position: absolute;
     font-size: 12px;
     font-weight: normal;
     width: 260px;
-    margin: 100px auto 0;
-    border: 1px solid #111;
-    background: #ccc;
-    box-shadow:
-	1px 2px #111,
-	inset 1px 1px 0px 0px #fff,
-	inset -1px -1px 0px 0px #999;
-}
-.content .inner {
-    margin: 2px 4px 4px 4px;
-    border: 1px solid #111;
+    min-width:  64px;
+    min-height: 64px;
+
+    border-image-slice:  40 40 40 40;
+    border-image-width:  40px 40px 40px 40px;
+    border-image-outset: 3px 4px 4px 3px;
+    border-image-repeat: repeat round;
+    border-style: solid;
+    border-image-source: url("img/border/border-image-nobar.png");
     background-color: #ddd;
-    box-shadow:
-	-1px -1px 0px 0px #999,
-	1px 1px 0px 0px #fff,
-	inset 1px 1px 0px 0px #fff,
-	inset -1px -1px 0px 0px #999;
+
+    resize: both;
+    overflow:auto;
+    overflow-y: hidden;
+
+    @supports selector(::-webkit-scrollbar)
+    {
+      border-image-outset: 4px 4px 4px 4px;
+    }
 }
-.title {
+/*---------------------------------------------------------------------------*/
+.win-blue.content
+{
+    border-image-source: url("img/border/border-image-nobar-blue.png");
+}
+
+.win-red.content
+{
+    border-image-source: url("img/border/border-image-nobar.png");
+}
+/*---------------------------------------------------------------------------*/
+.content .panel
+{
+    top:0.25px;
+    @supports selector(::-webkit-scrollbar)
+    {
+      top:0px;
+    }
+
+    size:100% 19px;
+    position: sticky;
+    padding-bottom:2px;
+    background-size: 100% 100%;
+    background-image: url("img/bar/bar.png");
+    background-repeat: no-repeat;
+    background-position:top top;
+}
+/*---------------------------------------------------------------------------*/
+.win-blue .panel
+{
+    background-image: url("img/bar/bar-blue.png");
+}
+
+.win-red .panel
+{
+    background-image: url("img/bar/bar.png");
+}
+
+/*---------------------------------------------------------------------------*/
+.content .inner
+{
+    overflow-y: auto;
+    background-color: #ddd;
+    padding: 5px;
+    height:100%;
+    width:100%;
+}
+
+.title
+{
+    color:#bebebe;
     width: 100%;
     text-align: center;
     font-size: inherit;
     font-weight: inherit;
     padding: 1px 0;
-    background-size: 3px 2px;
     margin: 0 0 0 0;
 }
-.content .icon {
+
+.content .icon
+{
     text-align: center;
-    margin: 1em 0;
+    margin: 1px 0;
 }
-.content ul {
+
+.content ul
+{
     list-style-type: none;
     margin: 2px 0 1.5em 0;
     padding: 0 0 0 2em;
     font-size: 12px;
 }
-.footer {
+
+.footer
+{
     width: 400px;
     text-align: center;
     margin: 2em auto 0;
     font-size: 12px;
 }
-.control-box {
+/*---------------------------------------------------------------------------*/
+.control-box
+{
     position: absolute;
-    top: 3px;
     padding: 1px;
     background-color: #222;
-    box-shadow:
-	inset -1px -1px 0px 0px #fff,
-	inset 1px 1px 0px 0px #888;
 }
-.close-box.control-box {
-    left: 4px;
+/*---------------------------------------------------------------------------*/
+.icon-box.control-box
+{
+    height:18px;
+    width: 26px;
+    background-image: url("img/controls/icon-control-button.png");
 }
-.control-box-inner {
-    display: block;        
-    height: 12px;
-    width: 12px;
-    background-image:
-	linear-gradient(to bottom right, #999, #aaa, #bbb, #ccc, #ddd, #eee, #fff);
-    border: 1px solid #222;
-    box-shadow:
-	inset 1px 1px 0px 0px #ccc,
-	inset -1px -1px 0px 0px #888;
-    text-indent: -99999em;
+
+.icon-box.control-box:active
+{
+    background-image: url("img/controls/icon-control-button-pressed.png");
 }
-.control-box-inner:active {
+
+.icon-box.inner
+{
+  /*For compability*/
+}
+/*---------------------------------------------------------------------------*/
+.win-blue .icon-box.control-box
+{
+    background-image: url("img/controls/icon-control-button-blue.png");
+}
+.win-red .icon-box.control-box
+{
+    background-image: url("img/controls/icon-control-button.png");
+}
+.win-blue .icon-box.control-box:active
+{
+    background-image: url("img/controls/icon-control-button-blue-pressed.png");
+}
+.win-red .icon-box.control-box:active
+{
+    background-image: url("img/controls/icon-control-button-pressed.png");
+}
+/*---------------------------------------------------------------------------*/
+.control-box-inner:active
+{
     box-shadow: none;
 }
-.zoom-box.control-box {
+
+.control-box-inner
+{
+  /*For compability*/
+}
+/*---------------------------------------------------------------------------*/
+.close-box.control-box
+{
+
+    height:18px;
+    width: 24px;
+    background-image: url("img/controls/close-control-button.png");
     right: 20px;
 }
-.zoom-box-inner {
-    height: 6px;
-    width: 7px;
-    border-bottom: 1px solid #000;
-    border-right: 1px solid #000;
+
+.close-box.control-box:active
+{
+    background-image: url("img/controls/close-control-button-pressed.png");
 }
-.windowshade-box.control-box {
-    right: 4px;
+
+.close-box-inner
+{
+  /*For compability*/
 }
-.windowshade-box-inner {
-    margin-top: 3px;
-    height: 3px;
-    border-top: 1px solid #000;
-    border-bottom: 1px solid #000;
+/*---------------------------------------------------------------------------*/
+.win-blue *.close-box.control-box
+{
+    background-image: url("img/controls/close-control-button-blue.png");
 }
-.content .command_button {
+.win-red *.close-box.control-box
+{
+    background-image: url("img/controls/close-control-button.png");
+}
+.win-blue *.close-box.control-box:active
+{
+    background-image: url("img/controls/close-control-button-blue-pressed.png");
+}
+.win-red *.close-box.control-box:active
+{
+    background-image: url("img/controls/close-control-button-pressed.png");
+}
+/*---------------------------------------------------------------------------*/
+.maximize-box.control-box
+{
+    right: 0px;
+    height:18px;
+    width: 20px;
+    background-image: url("img/controls/maximize-control-button.png");
+}
+
+.maximize-box.control-box:active
+{
+    background-image: url("img/controls/maximize-control-button-pressed.png");
+}
+
+.maximize-box-inner
+{
+  /*For compability*/
+}
+/*---------------------------------------------------------------------------*/
+.win-blue *.maximize-box.control-box
+{
+    background-image: url("img/controls/maximize-control-button-blue.png");
+}
+.win-red *.maximize-box.control-box
+{
+    background-image: url("img/controls/maximize-control-button.png");
+}
+.win-blue *.maximize-box.control-box:active
+{
+    background-image: url("img/controls/maximize-control-button-blue-pressed.png");
+}
+.win-red *.maximize-box.control-box:active
+{
+    background-image: url("img/controls/maximize-control-button-pressed.png");
+}
+/*---------------------------------------------------------------------------*/
+.content .command_button
+{
     height: 22px;
     background-color: #dedede;
     display: inline-block;
@@ -153,23 +331,30 @@ a {
     border: 1px solid #000;
     box-shadow: var(--button-box-shadow);
 }
-.content .command_button:hover {
+
+.content .command_button:hover
+{
     box-shadow:
-	var(--button-box-shadow),
-        var(--button-hover-bezel);
+    var(--button-box-shadow),
+    var(--button-hover-bezel);
 }
-.content .command_button:active {
+
+.content .command_button:active
+{
     color: #fff;
     background-color: #666;
     box-shadow:
-	var(--button-hover-bezel),
-	inset -1px -1px 0px 0px #888,
-	inset -2px -2px 0px 0px #777,
-	inset 1px 1px 0px 0px #444,
-	inset 2px 2px 0px 0px #555;
+    var(--button-hover-bezel),
+    inset -1px -1px 0px 0px #888,
+    inset -2px -2px 0px 0px #777,
+    inset 1px 1px 0px 0px #444,
+    inset 2px 2px 0px 0px #555;
 }
-/* Hide only visually, but have it available for screenreaders & for SEO purposes. See h5bp.com/v */
-.visuallyhidden {
+/*---------------------------------------------------------------------------*/
+/*Hide only visually, but have it available for screenreaders & for SEO purps*/
+/*---------------------------------------------------------------------------*/
+.visuallyhidden
+{
     border: 0;
     clip: rect(0 0 0 0);
     height: 1px;
@@ -180,12 +365,14 @@ a {
     width: 1px;
 }
 
-.clearfix:before,
-.clearfix:after {
+.clearfix:before, .clearfix:after
+{
     content: " ";
     display: table;
 }
 
-.clearfix:after {
+.clearfix:after
+{
     clear: both;
 }
+/*---------------------------------------------------------------------------*/

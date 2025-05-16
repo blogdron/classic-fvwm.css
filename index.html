@@ -2,31 +2,294 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Mac OS 8.1</title>
+  <title>X11 Xorg FVWM Style</title>
+  <!-- Xorg image taked from wikipedia for favicon -->
   <link rel="shortcut icon" href="img/favicon.ico" />
+  <!-- Taadaaaam Its Works! -->
   <link rel="stylesheet" href="base.css">
+  <!-- For set elements hooks handlers -->
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <!-- For draggable elements -->
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <!-- Common script location -->
   <script>
+  /* Pseudo window titles as place for draggable */
   $( function() {
-      $( "#content" ).draggable({ handle: "h1.title" });
+      $( "#content4" ).draggable({ handle: "h1.title" });
+      $( "#content"  ).draggable({ handle: "h1.title" });
+      $( "#content2" ).draggable({ handle: "h1.title" });
+      $( "#content3" ).draggable({ handle: "h1.title" });
+      $( "#content7" ).draggable({ handle: "h1.title" });
+      $( "#content8" ).draggable({ handle: "h1.title" });
+      $( "#content5" ).draggable({ handle: "div.draggable" });
+      $( "#content6" ).draggable({ handle: "div.draggable" });
+      $( "#content"  ).resizable({ handle: "content.inner" });
+
+      $(".content").hover(
+        function () {
+          $(this).addClass("win-blue");
+        },
+        function () {
+          $(this).removeClass("win-blue");
+        }
+      );
   } );
+  /*Override context menu fo show css menu*/
+  addEventListener("contextmenu",function(e)
+  {
+      /*This is disable browser context menu*/
+      e.preventDefault();
+      alert("Реализовать контекстное меню я не смог :)")
+  })
   </script>
 </head>
 <body>
-  <noscript><p><em>This page requires JavaScript.</em></p></noscript>
-  <div id="content" class="content">
-    <div class="control-box close-box"><a class="control-box-inner"></a></div>
-    <div class="control-box zoom-box"><div class="control-box-inner"><div class="zoom-box-inner"></div></div></div>
-    <div class="control-box windowshade-box"><div class="control-box-inner"><div class="windowshade-box-inner"></div></div></div>
-    <h1 class="title">Unimplemented!</h1>
+  <noscript><p><em>This page requires JavaScript :(.</em></p></noscript>
+<!---------------------------------------------------------------------------->
+<!--                              Example                                   -->
+<!---------------------------------------------------------------------------->
+  <div id="content" class="content old-scrollbar"  style="top: 50px; left: 250px;" >
+
+    <div class="panel">
+
+        <div class="control-box icon-box">
+            <a class="control-box-inner"></a>
+        </div>
+
+        <div class="control-box close-box">
+            <div class="control-box-inner">
+                <div class="close-box-inner"></div>
+            </div>
+        </div>
+
+        <div class="control-box maximize-box">
+            <div class="control-box-inner">
+                <div class="maximize-box-inner"></div>
+            </div>
+        </div>
+
+        <h1 class="title">FVWM ERROR!</h1>
+    </div>
     <div class="inner">
-      <div class="icon"><img src="img/bomb.png" /></div>
+      <div class="icon"><img src="img/bomb.png" alt="icon"/></div>
       <ul>
-	<li><class "s">A system error has occurred. Please reboot your Mac.</li>
+           <li>A FVWM error has occurred. Please reboot your PC :)</li>
       </ul>
       <button class="command_button">Reboot</button>
+      <button class="command_button">Ignore</button>
+      <button class="command_button">FuckIt</button>
+      <hr/>
+      <p>
+Fvwm is a virtual window manager for the X windows system. It was originally a feeble fork of TWM by Robert Nation in 1993 (fvwm history), and has evolved into the fantastic, fabulous, famous, flexible, and so on, window manager we have today.
+
+Fvwm is a ICCCM/EWMH compliant and highly configurable floating window manager built primarily using Xlib. Fvwm is configured using a configuration file, which is used to configure most aspects of the window manager including window looks, key bindings, menus, window behavior, additional modules, and more. There is a default configuration file that can be used as a starting point for writing one's own configuration file.
+
+Fvwm is a light weight window manager and can be configured to be anything from a small sleek window manager to a full featured desktop environment. To get the most out of fvwm, one should be willing to read the documents, and take the time to write a custom configuration file that suites their needs. The manual pages and the fvwm wiki can be used to help learn how to configure fvwm.
+
+Origin text from https://www.fvwm.org/
+      </p>
     </div>
  </div>
+
+
+<!---------------------------------------------------------------------------->
+<!--                                  Example                               -->
+<!---------------------------------------------------------------------------->
+  <div id="content7" class="content old-scrollbar win-blue" style="width: 600px; height:400px; top: 50px; left: 540px;" >
+
+    <div class="panel">
+
+        <div class="control-box icon-box">
+            <a class="control-box-inner"></a>
+        </div>
+
+        <div class="control-box close-box">
+            <div class="control-box-inner">
+                <div class="close-box-inner"></div>
+            </div>
+        </div>
+
+        <div class="control-box maximize-box">
+            <div class="control-box-inner">
+                <div class="maximize-box-inner"></div>
+            </div>
+        </div>
+
+        <h1 class="title">Xterm</h1>
+    </div>
+    <div class="inner"  style="font:monospace;"  >
+
+      <pre>
+
+LUA5.2(1)               General Commands Manual               LUA5.2(1)
+
+NAME
+       lua - Lua interpreter
+
+SYNOPSIS
+       lua [ options ] [ script [ args ] ]
+
+DESCRIPTION
+       lua  is  the  standalone Lua interpreter.  It loads and executes
+       Lua programs, either in textual source form  or  in  precompiled
+       binary  form.  (Precompiled binaries are output by luac, the Lua
+       compiler.)  lua can be used as a batch interpreter and also  in‐
+       teractively.
+
+       The  given options are handled in order and then the Lua program
+       in file script is loaded  and  executed.   The  given  args  are
+       available  to script as strings in a global table named arg.  If
+       no options or arguments are given, then -v -i  is  assumed  when
+       the standard input is a terminal; otherwise, - is assumed.
+
+       In  interactive mode, lua prompts the user, reads lines from the
+       standard input, and executes them as they are read.  If  a  line
+       does  not  contain a complete statement, then a secondary prompt
+       is displayed and lines are read until a  complete  statement  is
+       formed  or  a syntax error is found.  If a line starts with '=',
+       then lua evaluates and displays the values of the expressions in
+       the remainder of the line.
+
+       At the very start, before even handling the  command  line,  lua
+       checks the contents of the environment variables LUA_INIT_5_2 or
+       LUA_INIT, in that order.  If the contents is of the form '@file‐
+       name',  then filename is executed.  Otherwise, the string is as‐
+       sumed to be a Lua statement and is executed.
+
+OPTIONS
+       -e stat
+              execute statement stat.
+
+       -i     enter interactive mode after executing script.
+
+       -l name
+              execute the equivalent of name=require('name') before ex‐
+              ecuting script.
+
+       -v     show version information.
+
+       -E     ignore environment variables.
+
+       --     stop handling options.
+
+       -      stop handling options and execute the standard input as a
+              file.
+
+SEE ALSO
+       luac(1)
+       The documentation at lua.org, especially section 7 of the refer‐
+       ence manual.
+
+DIAGNOSTICS
+       Error messages should be self explanatory.
+
+AUTHORS
+       R. Ierusalimschy, L. H. de Figueiredo, W. Celes
+      </pre>
+    </div>
+ </div>
+<!---------------------------------------------------------------------------->
+<!--                                  Example                               -->
+<!---------------------------------------------------------------------------->
+  <div id="content8" class="content old-scrollbar"  style="width: 600px; height:400px; top: 50px; left:1180px;" >
+
+    <div class="panel">
+
+        <div class="control-box icon-box">
+            <a class="control-box-inner"></a>
+        </div>
+
+        <div class="control-box close-box">
+            <div class="control-box-inner">
+                <div class="close-box-inner"></div>
+            </div>
+        </div>
+
+        <div class="control-box maximize-box">
+            <div class="control-box-inner">
+                <div class="maximize-box-inner"></div>
+            </div>
+        </div>
+
+        <h1 class="title">Xterm</h1>
+    </div>
+    <div class="inner"  style=" background-color: black; color: white; font:monospace;"  >
+
+      <pre>
+Tasks: 352 total,   1 running, 351 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  4,4 us,  4,4 sy,  0,0 ni, 89,7 id,  0,0 wa,  0,0 hi,  1,5 si,  0,0 st
+MiB Mem :  11967,1 total,    643,1 free,  10429,0 used,   1514,7 buff/cache
+MiB Swap:  11847,4 total,   6717,9 free,   5129,6 used.   1538,1 avail Mem
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+   1871 dron      20   0 5139512 328716  47316 S  27,3   2,7     26,30 cinnamon
+1034893 dron      20   0 2494152 127996  99148 S  18,2   1,0   2:15.71 Isolated
+ 776804 dron      20   0 2850472 147612  74280 S   9,1   1,2 253:31.18 Isolated
+ 821534 dron      20   0 3707248 978860 128140 S   9,1   8,0  53:25.42 Isolated
+      1 root      20   0   24536   8476   5692 S   0,0   0,1   1:10.59 ~~~~~~~~
+      2 root      20   0       0      0      0 S   0,0   0,0   0:02.53 kthreadd
+      3 root      20   0       0      0      0 S   0,0   0,0   0:00.00 pool_wor
+      4 root       0 -20       0      0      0 I   0,0   0,0   0:00.00 kworker/
+      5 root       0 -20       0      0      0 I   0,0   0,0   0:00.00 kworker/
+      6 root       0 -20       0      0      0 I   0,0   0,0   0:00.00 kworker/
+      7 root       0 -20       0      0      0 I   0,0   0,0   0:00.00 kworker/
+      8 root       0 -20       0      0      0 I   0,0   0,0   0:00.00 kworker/
+     13 root       0 -20       0      0      0 I   0,0   0,0   0:00.00 kworker/
+     14 root      20   0       0      0      0 I   0,0   0,0   0:00.00 rcu_task
+     15 root      20   0       0      0      0 I   0,0   0,0   0:00.00 rcu_task
+     16 root      20   0       0      0      0 I   0,0   0,0   0:00.00 rcu_task
+     17 root      20   0       0      0      0 S   0,0   0,0   1:12.46 ksoftirq
+     18 root      20   0       0      0      0 I   0,0   0,0  23:17.20 rcu_pree
+     19 root      20   0       0      0      0 S   0,0   0,0   0:00.00 rcu_exp_
+     20 root      20   0       0      0      0 S   0,0   0,0   0:01.41 rcu_exp_
+     21 root      rt   0       0      0      0 S   0,0   0,0   0:06.68 migratio
+     22 root     -51   0       0      0      0 S   0,0   0,0   0:00.00 idle_inj
+     23 root      20   0       0      0      0 S   0,0   0,0   0:00.00 cpuhp/0
+     24 root      20   0       0      0      0 S   0,0   0,0   0:00.00 cpuhp/1
+     25 root     -51   0       0      0      0 S   0,0   0,0   0:00.00 idle_inj
+     26 root      rt   0       0      0      0 S   0,0   0,0   0:07.61 migratio
+     27 root      20   0       0      0      0 S   0,0   0,0   0:37.86 ksoftirq
+     30 root      20   0       0      0      0 S   0,0   0,0   0:00.00 cpuhp/2
+      </pre>
+    </div>
+ </div>
+<!---------------------------------------------------------------------------->
+<!--                     Custom Override example                            -->
+<!---------------------------------------------------------------------------->
+<div id="content5" class="content old-scrollbar win-blue" style="top: 50px; left: 50px;  width: 74px; height:74px; background-color:black;"  >
+    <div  class="inner draggable" style="background-color:white; overflow:hidden; " >
+      <img src="img/xclock.png" style="width:100%; height:100%;" alt="icon"/>
+    </div>
+ </div>
+<!---------------------------------------------------------------------------->
+<!--                     Custom Override example                            -->
+<!---------------------------------------------------------------------------->
+<div id="content6" class="content old-scrollbar" style="top: 50px; left: 150px; width: 74px; height:74px; background-color:black;"  >
+    <div  class="inner draggable" style="background-color:black; overflow:hidden; " >
+      <img src="img/glxgears-icon.png"  alt="icon"/>
+    </div>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
