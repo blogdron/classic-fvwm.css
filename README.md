@@ -3,6 +3,6 @@
 ![example](img/example.png)
 
 
-This is fork original project
+This is a fork of this project
 
  * https://github.com/npjg/classic.css 
