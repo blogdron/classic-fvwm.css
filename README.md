@@ -1,5 +1,7 @@
 ## FVWM Classic Style For WEB 
 
+This Style Sponsored by OpenBSD.org.ru
+
 ![example](img/example.png)
 
 
